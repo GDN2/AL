@@ -1,0 +1,52 @@
+package swpackage;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class KOI1998_J1 {
+
+	static int[][] matrix;
+	static int[][] visit;
+	static int[][] max;
+	
+	static int cnt;
+	static int N;
+	static int half;
+	static ArrayList<Integer> al = new ArrayList<>();
+	static ArrayList<Integer> caseArray = new ArrayList<>();
+	static ArrayList<Integer> matchcase = new ArrayList<>();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		Scanner scanner2 = new Scanner(System.in);
+		N = scanner.nextInt();
+		half = N/2;
+		
+		matrix = new int[half][4];
+		
+		for (int i=0;i<half;i++) { //한칸씩 띄어서 받을 경우에는 nextInt로 받는 것이 제일 좋음 nextLine은 무조건 오류발생, 숫자가 붙어서 올 때는 next로 받고 String분리 
+			for (int j=0;j<4;j++) {
+				matrix[i][j] = scanner.nextInt();
+			}
+		}
+		
+		for (int i=0;i<N/2;i++) {
+			for(int j=0;j<4;j++) {
+				System.out.print
+				(matrix[i][j]+" ");
+			}
+			System.out.println();
+		}
+		
+		for (int i=0;i<half;i++) {
+			for(int j=0;j<4;j++) {
+				max = Math.max(max, matrix[i][j]);
+			}
+		}
+		
+		
+	}
+
+}

@@ -1,0 +1,103 @@
+package swpackage;
+
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class KOI1997_J3 {
+	
+	static int matrix[][];
+	
+	static int rmatrix[][];
+	static int visit[][];
+	
+	static int N;
+	static int cnt;
+	
+	static int left;
+	static int right;
+	
+	
+	static ArrayList<Integer> al = new ArrayList<>();
+	static ArrayList<Integer> bl = new ArrayList<>();
+	static ArrayList<Integer> cl = new ArrayList<>();
+	static ArrayList<Integer> leftlist = new ArrayList<>();
+	static ArrayList<Integer> rightlist = new ArrayList<>();
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner scanner = new Scanner(System.in);
+		N = scanner.nextInt();
+		rmatrix = new int[N+1][N+1];
+		visit = new int[N+1][N+1];
+		do {
+			left = scanner.nextInt();
+			right = scanner.nextInt();
+			
+			if(left !=-1 && right!=-1) {
+				leftlist.add(left);
+				rightlist.add(right);
+				
+			}
+			
+		}	while(left != -1 && right != -1);
+
+		matrix = new int[leftlist.size()][2];
+		for (int i=0;i<leftlist.size();i++) {
+			matrix[i][0] = leftlist.get(i);
+			matrix[i][1] = rightlist.get(i);
+		}
+		
+		for (int i=0;i<matrix.length;i++) {
+			System.out.println(matrix[i][0]+" "+matrix[i][1]);
+		}
+		
+		for (int i=1;i<=rmatrix.length;i++) {
+			for (int j=1;j<=rmatrix.length;j++) {
+				rmatrix[matrix[i][0]][matrix[i][1]] = 1;
+				rmatrix[matrix[i][1]][matrix[i][0]] = 1;
+				if (i==j) {
+					rmatrix[i][i] = 1;
+				}
+			}
+		}
+		
+		for (int i=1;i<=rmatrix.length;i++) {
+			for (int j=1;j<=rmatrix.length;j++) {
+				System.out.print(rmatrix[i][j]);
+			}
+			System.out.println();
+		}
+		
+		
+		
+		
+		
+	
+	}
+	
+	public static void find(int x, int y, int localcnt) {
+		
+		if(rmatrix[x][y]==1) {
+			visit[x][y] = 1;
+			visit[y][x] = 1;
+			cnt = localcnt+1;
+		}else if(rmatrix[x][y]==0&&visit[x][y]==0&&cnt>localcnt+2) {
+			for(int i=1;i<=rmatrix.length;i++) {
+				if(rmatrix[i][y]==0&&visit[i][y]==0&&cnt>localcnt+2) {
+					find(i,y,localcnt);
+				}
+
+			}
+			
+		}
+		
+	}
+	
+	
+	
+	
+}

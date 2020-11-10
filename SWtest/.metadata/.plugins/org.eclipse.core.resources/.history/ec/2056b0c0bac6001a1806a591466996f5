@@ -1,0 +1,58 @@
+package swpackage;
+
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class forTest {
+	
+	static int matrix[][];
+	
+	static int rmatrix[][];
+	static int visit[][];
+	
+	static int N;
+	static int cnt;
+	
+	static int left;
+	static int right;
+	
+	
+	static ArrayList<Integer> al = new ArrayList<>();
+	static ArrayList<Integer> bl = new ArrayList<>();
+	static ArrayList<Integer> cl = new ArrayList<>();
+	static ArrayList<Integer> leftlist = new ArrayList<>();
+	static ArrayList<Integer> rightlist = new ArrayList<>();
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner scanner = new Scanner(System.in);
+		N = scanner.nextInt();
+		rmatrix = new int[N+1][N+1];
+		visit = new int[N+1][N+1];
+		do {
+			left = scanner.nextInt();
+			right = scanner.nextInt();
+			leftlist.add(left);
+			rightlist.add(right);
+			
+		}	while(left != -1 && right != -1);
+		leftlist.remove(leftlist.indexOf(-1));
+		rightlist.remove(rightlist.indexOf(-1));
+		
+		for(int i: leftlist) {
+			System.out.println(i);
+		}
+		
+		for(int i: rightlist) {
+			System.out.println(i);
+		}
+	
+	}
+	
+
+}
+

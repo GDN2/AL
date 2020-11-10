@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;SWproject/src/swpackage/KOI1998_J2CC.java&apos;" deleteContents="false" description="Delete resource &apos;SWproject/src/swpackage/KOI1998_J2CC.java&apos;" element1="/SWproject/src/swpackage/KOI1998_J2CC.java" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1595501416328"/>
+</session>

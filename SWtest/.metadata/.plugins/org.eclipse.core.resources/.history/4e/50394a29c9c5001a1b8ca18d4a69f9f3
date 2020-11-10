@@ -1,0 +1,143 @@
+package swpackage;
+
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class KOI1997_J3C {
+	
+	static int matrix[][];
+	
+	static int rmatrix[][];
+	static int visit[][];
+	
+	static int max[];
+	
+	static int N;
+	static int cnt;
+	static int tempcnt;
+	
+	static int left;
+	static int right;
+	static int INF = 999;
+	
+	
+	static ArrayList<Integer> maxlist = new ArrayList<>();
+	static ArrayList<Integer> leftlist = new ArrayList<>();
+	static ArrayList<Integer> rightlist = new ArrayList<>();
+	static ArrayList<Integer> cheflist = new ArrayList<>();
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner scanner = new Scanner(System.in);
+		N = scanner.nextInt();
+		rmatrix = new int[N+1][N+1];
+		visit = new int[N+1][N+1];
+		max = new int[N+1];
+		do {
+			left = scanner.nextInt();
+			right = scanner.nextInt();
+			
+			if(left !=-1 && right!=-1) {
+				leftlist.add(left);
+				rightlist.add(right);
+				
+			}
+			
+		}	while(left != -1 && right != -1);
+
+		matrix = new int[leftlist.size()][2];
+		for (int i=0;i<leftlist.size();i++) {
+			matrix[i][0] = leftlist.get(i);
+			matrix[i][1] = rightlist.get(i);
+		}
+		
+		/*
+		for (int i=0;i<matrix.length;i++) {
+			System.out.println(matrix[i][0]+" "+matrix[i][1]);
+		}
+		
+		*/
+		for (int i=0;i<matrix.length;i++) {
+			rmatrix[matrix[i][0]][matrix[i][1]] = 1;
+			rmatrix[matrix[i][1]][matrix[i][0]] = 1;
+		}
+		
+		
+		for (int i=1;i<=N;i++) {
+			for (int j=1;j<=N;j++) {
+				if(i!=j && rmatrix[i][j]==0) {
+					rmatrix[i][j]=INF;
+				}
+			}
+		}
+		
+		/*
+		for (int i=1;i<=N;i++) {
+			for (int j=1;j<=N;j++) {
+				System.out.print(rmatrix[i][j]+" ");
+			}
+			System.out.println();
+		}
+		*/
+		
+		for (int k=1;k<=N;k++) {
+			for (int i=1;i<=N;i++) {
+				for (int j=1;j<=N;j++) {
+					if (rmatrix[i][j]>rmatrix[i][k]+rmatrix[k][j]) {
+						rmatrix[i][j] = rmatrix[i][k] + rmatrix[k][j];
+					}
+				}
+			}
+		}
+		/*
+		for (int i=1;i<=N;i++) {
+			for (int j=1;j<=N;j++) {
+				System.out.print(rmatrix[i][j]+" ");
+			}
+			System.out.println();
+		}
+		*/
+		
+		
+		/*
+		for (int i=1;i<=N;i++) {
+			for (int j=1;j<=N;j++) {
+				System.out.print(rmatrix[i][j]);
+			}
+			System.out.println();
+		}
+		*/
+		
+		for (int i=1;i<=N;i++) {
+			for (int j=1;j<=N;j++) {
+				if (rmatrix[i][j] > max[i]) {
+					max[i] = rmatrix[i][j];
+				}
+			}
+			//System.out.println(max[i]);
+			maxlist.add(max[i]);
+		}
+		
+		for (int i=0;i<maxlist.size();i++) {
+			if (maxlist.get(i) == Collections.min(maxlist)) {
+				cheflist.add(i+1);
+			};
+		}
+		
+		//Ãâ·Â
+		System.out.print(Collections.min(maxlist)+" ");
+		System.out.println(cheflist.size());
+		for (int i: cheflist) {
+			System.out.print(i+" ");
+		}
+		
+		
+		
+	
+	}
+	
+	
+}

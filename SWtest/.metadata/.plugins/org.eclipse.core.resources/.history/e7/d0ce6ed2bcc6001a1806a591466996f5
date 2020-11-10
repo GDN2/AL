@@ -1,0 +1,42 @@
+package swpackage;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class forTest {
+
+	static int[][] matrix;
+	static int[][] visit;
+	
+	static int cnt;
+	static int N;
+	
+	static ArrayList<Integer> al = new ArrayList<>();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		N = scanner.nextInt();
+		matrix = new int[N/2][4];
+		for (int i=0;i<N/2;i++) {
+			String line = scanner.nextLine();
+			System.out.println(line);
+			String[] lineArray = line.split(" ");
+			System.out.println(lineArray);
+			for (int j=0;j<4;j++) {
+				matrix[i][j] = Integer.parseInt(lineArray[j]);
+			}
+		}
+		
+		for (int i=0;i<N/2;i++) {
+			for(int j=0;j<4;j++) {
+				System.out.println(matrix[i][j]+" ");
+			}
+			System.out.println();
+		}
+		
+	}
+
+}
+

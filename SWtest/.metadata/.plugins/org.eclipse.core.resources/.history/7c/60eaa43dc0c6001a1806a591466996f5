@@ -1,0 +1,47 @@
+package swpackage;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class KOI1998_J1 {
+
+	static int[][] matrix;
+	static int[][] visit;
+	
+	static int cnt;
+	static int N;
+	static int half;
+	static ArrayList<Integer> al = new ArrayList<>();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		Scanner scanner2 = new Scanner(System.in);
+		N = scanner.nextInt();
+		half = N/2;
+		
+		matrix = new int[half][4];
+		
+		for (int i=0;i<half;i++) {
+			String line = scanner2.nextLine();//nextInt -> nextLine을 쓸 경우 이미 입력한 첫 째 행을 받아버림 새로 scanner2생성
+			System.out.println(line);
+			String[] lineArray = line.split(" ");
+			System.out.println(lineArray.length);
+			for (int j=0;j<4;j++) {
+				matrix[i][j] = Integer.parseInt(lineArray[j]);
+			}
+		}
+		
+		
+		for (int i=0;i<N/2;i++) {
+			for(int j=0;j<4;j++) {
+				System.out.println(matrix[i][j]+" ");
+			}
+			System.out.println();
+		}
+		
+		
+	}
+
+}

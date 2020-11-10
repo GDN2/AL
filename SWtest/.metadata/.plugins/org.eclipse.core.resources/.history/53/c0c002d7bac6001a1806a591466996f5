@@ -1,0 +1,33 @@
+package swpackage;
+
+import java.util.Collections;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class forTest {
+	
+	static int matrix[][];
+	
+
+	static int max;
+	static ArrayList<Integer> al = new ArrayList<>();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner scanner = new Scanner(System.in);
+		//N = scanner.nextInt();
+		
+		al.add(1);
+		al.add(2);
+		al.add(5);
+		al.add(4);
+		for (i=0;i<al.size;i++) {
+			max = Collections.max(al);
+		}
+	
+	}
+	
+
+}
+
